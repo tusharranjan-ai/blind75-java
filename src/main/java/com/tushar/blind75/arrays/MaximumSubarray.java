@@ -5,10 +5,18 @@ import java.util.*;
 public class MaximumSubarray {
 
     public int maxSubArray(int[] nums) {
-
-        // TODO: Implement
-
-        return 0;
+        //Kadane’s Algorithm
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum =0;
+        for (int num : nums){
+            currentSum +=num;
+            maxSum = Math.max(maxSum,currentSum);
+            // Drop the sum if it becomes negative
+            if(currentSum <0){
+                currentSum =0;
+            }
+        }
+        return maxSum;
     }
 
     public static void main(String[] args) {
